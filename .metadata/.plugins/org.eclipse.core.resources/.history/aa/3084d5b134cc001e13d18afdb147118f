@@ -1,0 +1,89 @@
+package com.bank.demo.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bank.demo.controller.response.AccountResponse;
+import com.bank.demo.controller.response.UserResponse;
+import com.bank.demo.entity.Account;
+import com.bank.demo.entity.User;
+import com.bank.demo.service.UserService;
+
+import lombok.AllArgsConstructor;
+
+
+
+
+@RestController
+@AllArgsConstructor
+@RequestMapping("/api/users")
+public class UserController {
+	private final UserService userServ;
+	
+	@GetMapping
+	public ResponseEntity<List<UserResponse>> getAllUsers(){
+		List<User> users = userServ.findAll();
+		List<UserResponse> responseList = new ArrayList<>();
+		users.forEach( u -> {
+			UserResponse uResponse = new UserResponse();
+			uResponse.setId(u.getId());
+			uResponse.setNationalId(u.getNationalId());
+			uResponse.setFullName(u.getFullName());
+			uResponse.setPhone(u.getPhone());
+			List<AccountResponse> accs = new ArrayList<>();
+			for(Account acc : u.getAccounts()) {
+				AccountResponse aR = new AccountResponse();
+				aR.setAccId(acc.getAccId());
+				aR.setAccType(acc.getAccType());
+				aR.setBalance(acc.getBalance());
+				aR.setUser_id(u.getId());
+				accs.add(aR);
+			}
+			uResponse.setAccounts(accs);
+			responseList.add(uResponse);
+		});
+		return new  ResponseEntity<>(responseList , HttpStatus.OK);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<User> getOneUser(@PathVariable(value = "id" ) int id) {
+		return new ResponseEntity<User>(userServ.findById(id), HttpStatus.OK);
+	}
+	
+	@GetMapping("/nid")
+	public ResponseEntity<User> getByNID(@RequestParam(value = "nid" ) long nid) {
+		return new ResponseEntity<User>(userServ.findByNId(nid), HttpStatus.OK);
+	}
+	
+	@GetMapping("/phone")
+	public ResponseEntity<User> getByPhone(@RequestParam(value = "phone") long phone) {
+		return new ResponseEntity<User>(userServ.findByPhone(phone), HttpStatus.OK);
+	}
+	
+	@PostMapping
+	public User postUser(@RequestBody User user) {		
+		return userServ.saveUser(user);
+	}
+	
+	@PutMapping
+	public User putUser(@RequestBody User user) {		
+		return userServ.saveUser(user);
+	}
+	
+	@PatchMapping("/{id}")
+	public User patchUser(@RequestBody User user ,@PathVariable int id) {		
+		return userServ.editUser(id, user);
+	}
+}

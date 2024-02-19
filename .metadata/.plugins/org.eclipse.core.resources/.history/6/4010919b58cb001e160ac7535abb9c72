@@ -1,0 +1,16 @@
+package com.bank.demo.service;
+
+import org.springframework.stereotype.Service;
+
+import com.bank.demo.repository.AccountsRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AccountService {
+	AccountsRepository accRepo;
+	
+	
+	
+}

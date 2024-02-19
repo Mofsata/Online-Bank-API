@@ -1,0 +1,16 @@
+1707923831997	Delete element
+1708008052441	Move compilation unit
+1708023719414	Rename type 'AccountResponse'
+1708023732975	Rename type 'UserResponse'
+1708023919616	Rename field 'nationalId'
+1708024931414	Rename field 'nationalId'
+1708030662689	Rename package 'com.bank.demo.controller.response'
+1708031989186	Rename field 'nId'
+1708036790953	Delete element
+1708174911136	Rename type 'TransactionDTO'
+1708175620777	Delete element
+1708182160402	Rename type 'TransactionServices'
+1708186988300	Rename type 'AccountTransactionDto'
+1708186998816	Rename type 'ReceiveDto'
+1708187008720	Rename type 'TransactionGetDto'
+1708187019890	Rename type 'TransmitDto'

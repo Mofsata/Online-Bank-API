@@ -1,0 +1,18 @@
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
+ColorsAndFontsPreferencePage.expandedCategories=Torg.eclipse.ui.workbenchMisc\tTorg.eclipse.jdt.ui.presentation
+ColorsAndFontsPreferencePage.selectedElement=Forg.eclipse.jdt.ui.editors.textfont
+PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.compare.JavaMergeViewer=1|JetBrains Mono Medium|9.75|0|WINDOWS|1|-13|0|0|0|500|0|0|0|0|3|2|1|49|JetBrains Mono Medium;
+org.eclipse.jdt.ui.editors.textfont=1|JetBrains Mono Medium|9.75|0|WINDOWS|1|-13|0|0|0|500|0|0|0|0|3|2|1|49|JetBrains Mono Medium;
+org.eclipse.jface.bannerfont=1|Martian Mono|9.75|0|WINDOWS|1|-13|0|0|0|400|0|0|0|0|3|2|1|49|Martian Mono;
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands/>
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_END=41,41,41
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=43,44,45
+org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=204,204,204
+org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=41,41,41
+org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=43,44,45
+org.eclipse.ui.workbench.ACTIVE_TAB_TEXT_COLOR=221,221,221
+org.eclipse.ui.workbench.INACTIVE_TAB_BG_END=49,53,56
+org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=59,64,66
+org.eclipse.ui.workbench.INACTIVE_TAB_TEXT_COLOR=187,187,187

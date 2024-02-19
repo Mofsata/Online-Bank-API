@@ -1,0 +1,9 @@
+package com.bank.demo.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bank.demo.entity.Account;
+
+public interface AccountsRepository extends JpaRepository<Account, Integer>{
+
+}

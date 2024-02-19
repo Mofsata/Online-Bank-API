@@ -1,0 +1,5 @@
+package com.bank.demo.repository;
+
+public interface TransactionRepository {
+
+}

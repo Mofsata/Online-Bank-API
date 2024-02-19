@@ -1,0 +1,22 @@
+package com.bank.demo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.bank.demo.entity.Account;
+import com.bank.demo.repository.AccountsRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AccountService {
+	AccountsRepository accRepo;
+	
+	public List<Account> findAll(){
+		return accRepo.findAll();
+	}
+	
+	
+}

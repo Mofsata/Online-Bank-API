@@ -1,0 +1,12 @@
+package com.bank.demo.controller.dto;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+
+@Data
+public class TransactionDTO {
+
+	@JsonProperty(value = "sender_id")
+	private AccountDTO sender;
+}

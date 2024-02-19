@@ -1,0 +1,38 @@
+package com.bank.demo.controller.mapper;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
+import org.mapstruct.factory.Mappers;
+
+import com.bank.demo.controller.dto.AccountDTO;
+import com.bank.demo.controller.dto.TransactionPostDTO;
+import com.bank.demo.controller.dto.UserDTO;
+import com.bank.demo.entity.Account;
+import com.bank.demo.entity.Transaction;
+import com.bank.demo.entity.User;
+
+@Mapper(componentModel = "spring")
+public interface UserMapper {
+	UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+	
+	@Mapping(target = "accounts" , qualifiedByName = "acctoAccDTO")
+	UserDTO toDTO(User entity);
+	
+	@Mapping(target ="id" ,ignore = true)
+	@Mapping(target ="accounts" ,ignore = true)
+	User toUser(UserDTO dto);
+	
+	@Named("acctoAccDTO")
+	AccountDTO toDto(Account entity);
+	
+	@Mapping(target ="user" ,ignore = true)
+	@Mapping(target ="transmits" ,ignore = true)
+	@Mapping(target ="receives" ,ignore = true)
+	Account toAccount(AccountDTO dto);
+
+	TransactionPostDTO toTrans(Transaction entity);
+	
+	@Mapping(target ="id" ,ignore = true)
+	Transaction toDto(TransactionPostDTO dto);
+}

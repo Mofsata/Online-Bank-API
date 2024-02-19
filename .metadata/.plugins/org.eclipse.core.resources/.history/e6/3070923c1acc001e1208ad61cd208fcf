@@ -1,0 +1,15 @@
+package com.bank.demo.controller.response;
+
+import com.bank.demo.entity.AccType;
+import com.bank.demo.entity.User;
+
+import lombok.Data;
+
+@Data
+public class AccountResponse {
+	private int accId;
+	private AccType accType;
+	private double balance;
+
+	private User user_id;
+}

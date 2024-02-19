@@ -1,0 +1,64 @@
+package com.bank.demo.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bank.demo.entity.User;
+import com.bank.demo.service.UserService;
+
+import lombok.AllArgsConstructor;
+
+
+
+
+@RestController("/api/users")
+@AllArgsConstructor
+//@RequestMapping("/api/users")
+public class UserController {
+	private final UserService userServ;
+	
+	@GetMapping
+	public ResponseEntity<List<User>> getAll(){
+		return new  ResponseEntity<>(userServ.findAll() , HttpStatus.OK);
+	}
+	
+	@GetMapping
+	public ResponseEntity<User> getOne(@RequestParam(value = "id" ) int id) {
+		return new ResponseEntity<User>(userServ.findById(id), HttpStatus.OK);
+	}
+	
+	@GetMapping
+	public ResponseEntity<User> getByNID(@RequestParam(value = "nid" ) int nid) {
+		return new ResponseEntity<User>(userServ.findByNId(nid), HttpStatus.OK);
+	}
+	
+	@GetMapping
+	public ResponseEntity<User> getByPhone(@RequestParam(value = "phone") String phone) {
+		return new ResponseEntity<User>(userServ.findByPhone(phone), HttpStatus.OK);
+	}
+	
+	@PostMapping
+	public User postUser(@RequestBody User user) {		
+		return userServ.saveUser(user);
+	}
+	
+	@PutMapping
+	public User putUser(@RequestBody User user) {		
+		return userServ.saveUser(user);
+	}
+	
+	@PatchMapping("/{id}")
+	public User patchUser(@RequestBody User user ,@PathVariable int id) {		
+		return userServ.editUser(id, user);
+	}
+}
