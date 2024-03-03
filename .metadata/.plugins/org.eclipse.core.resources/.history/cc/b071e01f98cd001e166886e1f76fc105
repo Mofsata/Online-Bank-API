@@ -1,8 +1,0 @@
-package com.bank.demo.controller.dto;
-
-import lombok.Data;
-
-@Data
-public class ReceiveDto {
-
-}

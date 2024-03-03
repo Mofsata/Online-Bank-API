@@ -38,9 +38,7 @@ public class User {
 	@OneToMany(
 			mappedBy = "user", 
 			fetch = FetchType.EAGER, 
-			orphanRemoval = true, 
-			targetEntity = Account.class, 
-			cascade = CascadeType.ALL
+			orphanRemoval = true
 			)
 	private List<Account> accounts;
 }

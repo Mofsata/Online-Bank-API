@@ -21,11 +21,11 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL )
+	@ManyToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name = "sender_id")
 	private Account sender;
 	
-	@ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL )
+	@ManyToOne(fetch = FetchType.LAZY )
 	@JoinColumn(name = "receiver_id")
 	private Account receiver;
 	

@@ -35,23 +35,20 @@ public class Account {
 	@ManyToOne(
 			targetEntity = User.class, 
 			fetch = FetchType.LAZY, 
-			optional = true, 
-			cascade = CascadeType.ALL
+			optional = true
 			)
 //	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@OneToMany(
 			mappedBy = "sender",
-			fetch = FetchType.EAGER,
-			cascade = CascadeType.ALL
+			fetch = FetchType.EAGER
 			)
 	private List<Transaction> transmits;
 	
 	@OneToMany(
 			mappedBy = "receiver",
-			fetch = FetchType.EAGER,
-			cascade = CascadeType.ALL
+			fetch = FetchType.EAGER
 			)
 	private List<Transaction> receives;
 }

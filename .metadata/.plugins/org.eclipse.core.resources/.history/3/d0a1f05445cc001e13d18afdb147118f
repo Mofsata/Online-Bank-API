@@ -1,8 +1,0 @@
-package com.bank.demo.controller.mapper;
-import com.bank.demo.controller.dto.AccountDTO;
-import com.bank.demo.entity.Account;
-
-public interface AccountMapper {
-	AccountDTO accountDTOtoAccount(Account acc);
-	Account accounttoAccountDTO(AccountDTO accResponse);
-}

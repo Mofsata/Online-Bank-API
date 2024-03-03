@@ -42,8 +42,8 @@ public class UserService {
 	}
 	
 	// Edit User
-	public User editUser(int id, User newUser) {
-		User curUser = userRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException());
+	public User editUser(String nid, User newUser) {
+		User curUser = userRepo.findByNationalId(nid).orElseThrow(() -> new ResourceNotFoundException());
 		if(newUser.getFullName() != null) {
 			curUser.setFullName(newUser.getFullName());
 		}

@@ -31,15 +31,15 @@ public class AccountController {
 	private final AccountService accServ;
 	private final UserMapper mapper;
 	
-	@GetMapping
-	public ResponseEntity<List<AccountDTO>> getAllAccs() {
-		List<Account> accs = accServ.findAll();
-		List<AccountDTO> accsdto = new ArrayList<>();
-		accs.forEach(acc -> {
-			accsdto.add(mapper.toDto(acc));
-		});
-		return new ResponseEntity<>(accsdto, HttpStatus.OK);
-	}
+//	@GetMapping
+//	public ResponseEntity<List<AccountDTO>> getAllAccs() {
+//		List<Account> accs = accServ.findAll();
+//		List<AccountDTO> accsdto = new ArrayList<>();
+//		accs.forEach(acc -> {
+//			accsdto.add(mapper.toDto(acc));
+//		});
+//		return new ResponseEntity<>(accsdto, HttpStatus.OK);
+//	}
 
 	@GetMapping("/{id}")
 	public ResponseEntity<AccountDTO> getAcc(@PathVariable(value = "id") int id) {

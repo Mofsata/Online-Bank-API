@@ -32,21 +32,21 @@ public class UserController {
 	private final UserService userServ;
 	private final UserMapper mapper;
 	
-	@GetMapping
-	public ResponseEntity<List<UserDTO>> getAllUsers(){
-		List<User> users = userServ.findAll();
-		List<UserDTO> userdto = new ArrayList<>();
-		users.forEach(u -> {
-			userdto.add(mapper.toDTO(u));
-		});
-		return new  ResponseEntity<>(userdto , HttpStatus.OK);
-	}
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<UserDTO> getOneUser(@PathVariable(value = "id" ) int id) {
-		UserDTO user = mapper.toDTO(userServ.findById(id));
-		return new ResponseEntity<>(user, HttpStatus.OK);
-	}
+//	@GetMapping
+//	public ResponseEntity<List<UserDTO>> getAllUsers(){
+//		List<User> users = userServ.findAll();
+//		List<UserDTO> userdto = new ArrayList<>();
+//		users.forEach(u -> {
+//			userdto.add(mapper.toDTO(u));
+//		});
+//		return new  ResponseEntity<>(userdto , HttpStatus.OK);
+//	}
+//	
+//	@GetMapping("/{id}")
+//	public ResponseEntity<UserDTO> getOneUser(@PathVariable(value = "id" ) int id) {
+//		UserDTO user = mapper.toDTO(userServ.findById(id));
+//		return new ResponseEntity<>(user, HttpStatus.OK);
+//	}
 	
 	@GetMapping("/nid")
 	public ResponseEntity<UserDTO> getByNID(@RequestParam(value = "nid" ) String nid) {
@@ -67,18 +67,17 @@ public class UserController {
 		return new ResponseEntity<>("User Saved Successfully", HttpStatus.CREATED);
 	}
 	
-	@PutMapping
-	public ResponseEntity<String> putUser(@RequestBody UserDTO userdto) {	
-		User user = mapper.toUser(userdto);
-		userServ.saveUser(user);
-		return new ResponseEntity<>("User Saved Successfully", HttpStatus.ACCEPTED);
-	}
+//	@PutMapping
+//	public ResponseEntity<String> putUser(@RequestBody UserDTO userdto) {	
+//		User user = mapper.toUser(userdto);
+//		userServ.saveUser(user);
+//		return new ResponseEntity<>("User Saved Successfully", HttpStatus.ACCEPTED);
+//	}
 	
-	@PatchMapping("/{id}")
-	public ResponseEntity<UserDTO> patchUser(@RequestBody UserDTO userdto ,@PathVariable int id) {	
-		User user = mapper.toUser(userdto);
-		userServ.editUser(id, user);
-		UserDTO userOut = mapper.toDTO(userServ.findById(id));
+	@PatchMapping("/nid")
+	public ResponseEntity<UserDTO> patchUser(@RequestBody UserDTO userdto ,@RequestParam(value = "nid") String nid) {	
+		User user = userServ.editUser(nid, mapper.toUser(userdto));
+		UserDTO userOut = mapper.toDTO(user);
 		return new ResponseEntity<>(userOut, HttpStatus.ACCEPTED);
 	}
 }
